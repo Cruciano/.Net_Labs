@@ -10,7 +10,7 @@ namespace lab.Logic
     {
         protected string _password;
         protected Test _currentTest;
-        protected Result _result;
+
 
         public AbstractUser()
         {
@@ -23,7 +23,7 @@ namespace lab.Logic
             Name = name;
             Surname = surname;
             _password = password;
-            _result = new();
+            TestResult = new();
         }
 
         public AbstractUser(AbstractUser user)
@@ -37,6 +37,7 @@ namespace lab.Logic
         public int Id { get; protected set; }
         public string Name { get; protected set; }
         public string Surname { get; protected set; }
+        public Result TestResult { get; }
         public Test CurrentTest
         {
             get

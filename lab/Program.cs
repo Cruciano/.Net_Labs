@@ -28,6 +28,8 @@ namespace lab
             Console.WriteLine("=================================");
             Console.WriteLine("Lab5_Tester start:");
             Lab5_UpDownCasting_Tester.Run();
+
+            Console.ReadLine();
         }
     }
 }
