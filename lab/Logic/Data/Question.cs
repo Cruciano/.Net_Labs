@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace lab.Logic
 {
@@ -17,6 +18,18 @@ namespace lab.Logic
             this.answers = answers;
             this.correctAnswer = correctAnswer;
             this.score = score;
+        }
+
+        public string GetCombinedAnswers()
+        {
+            int i = 0;
+            Func<string, string, string> func = delegate (string current, string next)
+            {
+                i++;
+                return current + i.ToString() + ". " + (next + "\n");
+            };
+
+            return answers.Aggregate("", func);
         }
     }
 }

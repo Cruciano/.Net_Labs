@@ -13,7 +13,10 @@ namespace lab.Logic
         private static User _currentUser = new();
         private static int _lastId;
 
-        public static int CreateUser(string name, string surname, string password)
+        public delegate void UserEventHandler(string message);
+        public event UserEventHandler Notify;
+
+        public int CreateUser(string name, string surname, string password)
         {
             if ((name is null or "") || (surname is null or "") || (password is null or ""))
             {
@@ -23,10 +26,11 @@ namespace lab.Logic
             User usr = new(_lastId++, name, surname, password);
             _users.Add(usr);
 
+            Notify?.Invoke("Користувач створений");
             return usr.Id;
         }
 
-        public static bool AuthorizeUser(int id, string pass)
+        public bool AuthorizeUser(int id, string pass)
         {
             if (!_users.Exists(u => u.Id == id) || !_users.First(u => u.Id == id).CheckPass(pass))
             {
@@ -34,7 +38,14 @@ namespace lab.Logic
             }
 
             _currentUser = _users.First(u => u.Id == id);
+
+            Notify?.Invoke("Користувача авторизовано");
             return true;
+        }
+
+        public User GetAuthorizedUser()
+        {
+            return _currentUser;
         }
     }
 }

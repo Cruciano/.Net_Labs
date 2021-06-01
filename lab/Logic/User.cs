@@ -37,7 +37,7 @@ namespace lab.Logic
             Question question = _currentTest.GetItem(id);
             if (question.correctAnswer == answ_num)
             {
-                _result += question.score;
+                TestResult += question.score;
                 return true;
             }
 

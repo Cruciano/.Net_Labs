@@ -12,8 +12,10 @@ namespace lab
                                "=================================\n";
 
             Console.WriteLine(name);
+            Tester tester = new();
+            tester.Run();
 
-            Console.WriteLine("=================================");
+            /*Console.WriteLine("=================================");
             Console.WriteLine("Lab2_Tester start:");
             Lab2_Contstructor_Tester.Run();
 
@@ -27,7 +29,7 @@ namespace lab
 
             Console.WriteLine("=================================");
             Console.WriteLine("Lab5_Tester start:");
-            Lab5_UpDownCasting_Tester.Run();
+            Lab5_UpDownCasting_Tester.Run();*/
 
             Console.ReadLine();
         }

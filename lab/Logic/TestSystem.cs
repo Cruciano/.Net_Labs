@@ -14,11 +14,8 @@ namespace lab.Logic
         public TestSystem(User user)
         {
             _user = user;
-            userManager = new();
             _store = new();
         }
-
-        public UserManager userManager { get; }
 
         public IEnumerable<string> GetThemeNames()
         {

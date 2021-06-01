@@ -37,7 +37,7 @@ namespace lab.Logic
         public int Id { get; protected set; }
         public string Name { get; protected set; }
         public string Surname { get; protected set; }
-        public Result TestResult { get; }
+        public Result TestResult { get; protected set; }
         public Test CurrentTest
         {
             get
